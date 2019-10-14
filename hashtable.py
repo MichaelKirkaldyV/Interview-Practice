@@ -11,13 +11,24 @@ print hash1['Angelo']
 #prints entire dictionary
 print Counter(hash1)
 
+#Tallys a list of of word occurences
+count = Counter()
+names = ["heg", "adkjfg", "vbdjv", "kevin", "kevin"]
+for word in names:
+	count[word] += 1
+print count
+
 #prints ever letter in the key, the string is an iterable.
 for key in hash1.keys():
 	print Counter(key)
 
-#Lists elements in arbitrary order, if element is less than 0, it'll ignore it. 
+#elements in arbitrary order, if element is less than 0, it'll ignore it. 
 a = Counter(hash1["Cuchulainn"])
 print list(a.elements())
+
+#most_common method prints the most common elements in the counter.
+print Counter(hash1["Angelo"]).most_common(2)
+
 
 '''
 hash2 = {
