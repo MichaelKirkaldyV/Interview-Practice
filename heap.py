@@ -39,25 +39,27 @@ class binaryHeap:
 	"""
 	def bubbleUp(self, index):	
 		parentIndex = (index - 1) // 2
-		if self.heapList[index] < self.heapList[parentIndex]:
-			temp = self.heapList[parentIndex]
-			self.heapList[parentIndex] = self.heapList[index]
-			self.heapList[index] = temp
+		while index > 0 and self.heapList[index] < self.heapList[parentIndex]:
+			self.heapList[index], self.heapList[parentIndex] = self.heapList[parentIndex], self.heapList[index]
 			index = parentIndex
+			parentIndex = (index - 1) // 2
 		print self.heapList
 
+	#TODO Fix bubble down error.
 	def bubbleDown(self, index):
 		#Initally set as the root node of the tree.
-		node = self.heapList[index]
+		parentIndex = index
 		leftChild = 2 * index + 1
 		rightChild = 2 * index + 2
-		if node > leftChild:
-			node, leftChild = leftChild, node
-			self.bubbleDown(leftChild)
+		if parentIndex > leftChild:
+			parentIndex, leftChild = leftChild, parentIndex
+			index = leftChild
+			self.bubbleDown(index)
 		else:
-			if node > rightChild:
-				node, rightChild = rightChild, node
-				self.bubbleDown(rightChild)
+		    if parentIndex > rightChild:
+				parentIndex, rightChild = rightChild, parentIndex
+				index = rightChild
+				self.bubbleDown(index)
 		print self.heapList
 
 
@@ -88,13 +90,9 @@ class binaryHeap:
 		self.bubbleUp(index)
 
 
-arr = [1,5,8,23]
+arr = [10,12,18,23]
 newHeap = binaryHeap(arr)
-newHeap.insert(90)
-newHeap.insert(44)
-newHeap.insert(789)
-newHeap.insert(55)
-newHeap.delete()
+newHeap.insert(4)
 
 
 
