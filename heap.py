@@ -37,14 +37,16 @@ class binaryHeap:
 	set the heaplist of parent index to the list index and the list index to the temp var.
 	Finally, we set the actual
 	"""
+
+	#TODO FIX BUBBLE UP 
 	def bubbleUp(self, index):	
-		parentIndex = (index - 1) // 2
+		parentIndex = index // 2
 		while index > 0 and self.heapList[index] < self.heapList[parentIndex]:
 			self.heapList[index], self.heapList[parentIndex] = self.heapList[parentIndex], self.heapList[index]
 			index = parentIndex
-			parentIndex = (index - 1) // 2
+			parentIndex = index // 2
+		print self.heapList
 
-	#TODO Fix bubble down error.
 	def bubbleDown(self, index):
 		#Initally set as the root node of the tree.
 		parentIndex = index
@@ -60,7 +62,6 @@ class binaryHeap:
 				self.heapList[parentIndex], self.heapList[rightChild] = self.heapList[rightChild], self.heapList[parentIndex]
 				index = parentIndex + 2
 				self.bubbleDown(index)
-		print self.heapList
 
 
 	"""
@@ -96,6 +97,7 @@ newHeap.insert(4)
 newHeap.insert(106)
 newHeap.insert(45)
 newHeap.delete()
+newHeap.insert(2)
 
 
 
