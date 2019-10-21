@@ -43,7 +43,6 @@ class binaryHeap:
 			self.heapList[index], self.heapList[parentIndex] = self.heapList[parentIndex], self.heapList[index]
 			index = parentIndex
 			parentIndex = (index - 1) // 2
-		print self.heapList
 
 	#TODO Fix bubble down error.
 	def bubbleDown(self, index):
@@ -51,14 +50,15 @@ class binaryHeap:
 		parentIndex = index
 		leftChild = 2 * index + 1
 		rightChild = 2 * index + 2
-		if parentIndex > leftChild:
-			parentIndex, leftChild = leftChild, parentIndex
-			index = leftChild
+		if self.heapList[parentIndex] > self.heapList[leftChild]:
+			self.heapList[parentIndex], self.heapList[leftChild] = self.heapList[leftChild], self.heapList[parentIndex]
+			#parentIndex is increased because the leftChild it swapped with is at the next index.
+			index = parentIndex + 1
 			self.bubbleDown(index)
 		else:
-		    if parentIndex > rightChild:
-				parentIndex, rightChild = rightChild, parentIndex
-				index = rightChild
+		    if parentIndex > rightChild and self.heapList[parentIndex] > self.heapList[rightChild]:
+				self.heapList[parentIndex], self.heapList[rightChild] = self.heapList[rightChild], self.heapList[parentIndex]
+				index = parentIndex + 2
 				self.bubbleDown(index)
 		print self.heapList
 
@@ -74,7 +74,7 @@ class binaryHeap:
 		self.heapList[0] = lastNode
 		self.currentSize -= 1
 		self.heapList.pop()
-		self.bubbleDown(self.heapList[0])
+		self.bubbleDown(0)
 
 
 	"""
@@ -93,6 +93,9 @@ class binaryHeap:
 arr = [10,12,18,23]
 newHeap = binaryHeap(arr)
 newHeap.insert(4)
+newHeap.insert(106)
+newHeap.insert(45)
+newHeap.delete()
 
 
 
