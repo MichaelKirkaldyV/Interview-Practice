@@ -39,13 +39,13 @@ class binaryHeap:
 	"""
 
 	#TODO FIX BUBBLE UP 
-	def bubbleUp(self, index):	
-		parentIndex = index // 2
-		while index > 0 and self.heapList[index] < self.heapList[parentIndex]:
+	def bubbleUp(self, index):
+		parentIndex = (index - 1) //2
+		if self.heapList[index] < self.heapList[parentIndex]:
 			self.heapList[index], self.heapList[parentIndex] = self.heapList[parentIndex], self.heapList[index]
 			index = parentIndex
-			parentIndex = index // 2
-		print self.heapList
+			print self.heapList
+			self.bubbleUp(index)			
 
 	def bubbleDown(self, index):
 		#Initally set as the root node of the tree.
@@ -56,12 +56,15 @@ class binaryHeap:
 			self.heapList[parentIndex], self.heapList[leftChild] = self.heapList[leftChild], self.heapList[parentIndex]
 			#parentIndex is increased because the leftChild it swapped with is at the next index.
 			index = parentIndex + 1
+			print self.heapList
 			self.bubbleDown(index)
 		else:
-		    if parentIndex > rightChild and self.heapList[parentIndex] > self.heapList[rightChild]:
+		    if self.heapList[parentIndex] > self.heapList[rightChild]:
 				self.heapList[parentIndex], self.heapList[rightChild] = self.heapList[rightChild], self.heapList[parentIndex]
 				index = parentIndex + 2
+				print self.heapList
 				self.bubbleDown(index)
+			
 
 
 	"""
@@ -93,11 +96,8 @@ class binaryHeap:
 
 arr = [10,12,18,23]
 newHeap = binaryHeap(arr)
-newHeap.insert(4)
-newHeap.insert(106)
-newHeap.insert(45)
 newHeap.delete()
-newHeap.insert(2)
+
 
 
 
