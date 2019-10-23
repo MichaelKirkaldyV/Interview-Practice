@@ -67,9 +67,61 @@ def insertionSort(arr):
 	        alist[position] = alist[position-1]
 	        position = position-1
 	    alist[position] = currentvalue
-alist = [90,56,2,566,1,12,22]
-insertionSort(alist)
-print alist
+	    
+#alist = [90,56,2,566,1,12,22]
+#insertionSort(alist)
+#print alist
+
+
+"""
+Heap Sort is also like insertion sort and selection sort. It segments the list into unsorted and sorted parts.
+It converts the unsorted segment to a Heap data structure, so that we can efficiently determine the largest element.
+
+Begin by making the list into a Max Heap(largest element is the root node), Placing that item at the end of the list.
+We then rebuild our Max Heap which now has one less value, placing the new largest item before the last item of the list. 
+Reiterate this process until all nodes are removed. 
+"""
+
+def heapify(arr, heap_size, root_index):
+	#Assume the root index is the largest intially.
+	largest_node = root_index
+	left_child = (2 * root_index) + 1
+	right_child = (2 * root_index) + 2
+
+	#If the left child exists and the element is greater than 
+	#the current largest element them swap them.
+	if left_child < heap_size:
+		if arr[left_child] > arr[largest_node]:
+			largest_node = left_child
+
+	#Do the same for the right child of the root.
+	if right_child < heap_size:
+		if arr[right_child] > arr[largest_node]:
+			largest_node = right_child
+
+	#If the larger element is not the root, swap them.
+	#use recursion and reheapify the new root to ensure it's the largest element.
+	if largest_node != root_index:
+		arr[root_index], arr[largest_node] = arr[largest_node], arr[root_index]
+		heapify(arr, heap_size, largest_node)
+
+def heapSort(arr):
+	n = len(arr)
+
+	#Build a Max Heap.
+	#second argument in range means to stop(doesn't inlcude) before the -1 element.
+	#3rd argument in range means to count backwards, reducing the count of i by 1.
+	for index in range(n, -1, -1):
+		heapify(arr, n, index)
+
+	#one by one extract the elements
+	for i in range(n - 1, 0, -1):
+		arr[i], arr[0] = arr[0], arr[i]
+		heapify(arr, i, 0)	
+
+arr = [9,23,555,67,1,23,344]
+heapSort(arr)
+print arr
 
 
 
