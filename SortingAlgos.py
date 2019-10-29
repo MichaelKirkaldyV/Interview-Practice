@@ -58,6 +58,7 @@ As we move to the other elements in the sorted list, we continuosly move larger 
 or reach the end of the sorted list, then we place (x) in it's place.
 """ 
 
+#Time Complexity: O(n^2)
 def insertionSort(arr):
 	for index in range(1,len(alist)):
 	    currentvalue = alist[index]
@@ -81,7 +82,7 @@ Begin by making the list into a Max Heap(largest element is the root node), Plac
 We then rebuild our Max Heap which now has one less value, placing the new largest item before the last item of the list. 
 Reiterate this process until all nodes are removed. 
 """
-
+#Time Complexity: O(nlog(n))
 def heapify(arr, heap_size, root_index):
 	#Assume the root index is the largest intially.
 	largest_node = root_index
