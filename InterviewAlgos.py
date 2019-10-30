@@ -5,20 +5,21 @@ class Node:
 		self.value = value
 		self.left = None
 		self.right = None
+		
 
-	def maxDepth(node):
-		if node is None:
-			return 0
+def maxDepth(node):
+	if node is None:
+		return 0
+	else:
+		#Check the depth of left subtree and the right, recursively.
+		left_depth = maxDepth(node.left)
+		right_depth = maxDepth(node.right)
+
+		#Add 1 to count the root node in the depth, as trees start at the 0 index.
+		if left_depth > right_depth:
+			return left_depth + 1
 		else:
-			#Check the depth of left subtree and the right, recursively.
-			left_depth = maxDepth(node.left)
-			right_depth = maxDepth(node.right)
-
-			#Add 1 to count the root node in the depth, as trees start at the 0 index.
-			if left_depth > right_depth:
-				return left_depth + 1
-			else:
-				return right_depth + 1
+			return right_depth + 1
 
 
 root = Node(1)
