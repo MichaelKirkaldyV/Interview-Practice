@@ -56,8 +56,10 @@ root.left.right = Node(5)
 #Given two Binary strings, return their sum. (Also, a Binary String)
 
 def makeBinaryString(str1, str2):
-	#Use bin to get the binary representation
-	return bin(int(str1, 2) + int(str2, 2))
+	#First convert to integer
+	#Then use bin to get the binary representation of that number.
+	#splice from starting at two and then stop to remove "0b" get a clean value of the binary representation
+	return bin(int(str1, 2) + int(str2, 2)) [2:]
 	
 a = "11"
 b = "1"
