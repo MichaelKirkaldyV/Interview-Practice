@@ -64,8 +64,24 @@ def makeBinaryString(str1, str2):
 a = "11"
 b = "1"
 
-makeBinaryString(a,b)
-print makeBinaryString(a,b)
+#makeBinaryString(a,b)
+#print makeBinaryString(a,b)
+
+#-----------------------------------------------------------------------------------#
+
+#Given an array nums and a value val, remove all instances of that value in place and return the new length.
+#Slicing a list goes as follows. list[<start>:<stop>:<step>]
+def removeElement(arr, val):
+	for i in range(len(arr)) [::-1]:
+		if arr[i] == val:
+			del arr[i]		
+	return len(arr)
+
+
+nums = [1,2,2,3,4,5,2,7]
+removeElement(nums, 2)
+print removeElement(nums, 2)
+
 
 
 
