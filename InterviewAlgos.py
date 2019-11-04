@@ -1,5 +1,7 @@
+from collections import deque
 #Given a Binary Tree, find the maximum depth.
 #Given a Binary Tree, find the minimum depth.
+
 
 class Node:
 	def __init__(self, value):
@@ -78,9 +80,34 @@ def removeElement(arr, val):
 	return len(arr)
 
 
-nums = [1,2,2,3,4,5,2,7]
-removeElement(nums, 2)
-print removeElement(nums, 2)
+#nums = [1,2,2,3,4,5,2,7]
+#removeElement(nums, 2)
+#print removeElement(nums, 2)
+
+#----------------------------------------------------------------------------------------#
+
+#Given an expression string, write a program to check if a string has valid parenthesis.
+
+
+def checkString(input_str):
+	dic = {"(" : ")", "{" : "}", "[" : "]" }
+	stack = deque()
+	for parenthesis in input_str:
+		#If the item is in the dictionary add it to the stack.
+		if parenthesis in dic:
+			stack.append(parenthesis)
+		#check if the stack is empty(Base case) or if dic key isn't equal to parenthesis.
+		elif len(stack) == 0 or dic[stack.pop()] != parenthesis:
+			return False
+	return True
+
+
+
+new_string = "(){}[]"
+str2 = "())))"
+print checkString(new_string)
+print checkString(str2)
+
 
 
 
