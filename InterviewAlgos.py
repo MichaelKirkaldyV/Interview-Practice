@@ -103,10 +103,29 @@ def checkString(input_str):
 
 
 
-new_string = "(){}[]"
-str2 = "())))"
-print checkString(new_string)
-print checkString(str2)
+#new_string = "(){}[]"
+#str2 = "())))"
+#print checkString(new_string)
+#print checkString(str2)
+
+#----------------------------------------------------------------------------------#
+
+#Return the first occurence of the needle in the haystack.
+#i.e haystack = "hello", needle = "ll"
+
+def findNeedle(haystack, needle):
+	if needle in haystack:
+		#Use find() to find the first occurence of the needle.
+		return haystack.find(needle)
+	else:
+		return 0
+
+haystack = "Super Mario"
+needle = "Mario"
+h2 = "Nebula"
+n2 = "Kowloon"
+print findNeedle(h2, n2)
+print findNeedle(haystack, needle)
 
 
 
