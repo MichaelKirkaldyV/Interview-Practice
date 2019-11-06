@@ -69,7 +69,6 @@ b = "1"
 
 makeBinaryString(a,b)
 print makeBinaryString(a,b)
-"""
 
 #-----------------------------------------------------------------------------------#
 
@@ -152,6 +151,33 @@ def rotateArray(arr, step):
 
 arr = [0,1,2,3,4,5,6,7]
 print rotateArray(arr, step)
+"""
+
+#----------------------------------------------------------------------------------------#
+
+#Given an array nums, write a function to move all the 0's to the end of it, 
+#While maintaining the relative order of the non zero elements.
+#Must be done in-place.
+
+def moveZeros(arr):
+	#Count the non-zero elements in the array.
+	count = 0
+	for i in arr:
+		if arr[i] != 0:
+			#Set the arr of count to the arr to the arr of index.
+			#arr
+			arr[count] = arr[i]
+			count += 1
+
+	#Now that all non-zero elements have been moved to the front and count is set to zero
+	#or first index, make all the elements zero from count to end.
+	while count < len(arr):
+		arr[count] = 0
+		count += 1
+
+
+arr = [0,2,0,22,0,9]
+print moveZeros(arr)
 
 
 
