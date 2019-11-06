@@ -35,6 +35,9 @@ class Stack:
 	def size(self):
 		return len(self.stack)
 
+	def getMin(self):
+		return min(self.stack)
+
 class Queue:
 	def __init__(self):
 		self.queue = []
@@ -55,4 +58,5 @@ class Queue:
 nStack = Stack()
 nStack.push("Pomelo")
 nStack.push("Currants")
+nStack.getMin()
 print nStack
