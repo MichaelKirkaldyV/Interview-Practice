@@ -160,24 +160,17 @@ print rotateArray(arr, step)
 #Must be done in-place.
 
 def moveZeros(arr):
-	#Count the non-zero elements in the array.
-	count = 0
-	for i in arr:
+	#Records the position of "0"
+	zero = 0
+	for i in range(len(arr)):
 		if arr[i] != 0:
-			#Set the arr of count to the arr to the arr of index.
-			#arr
-			arr[count] = arr[i]
-			count += 1
-
-	#Now that all non-zero elements have been moved to the front and count is set to zero
-	#or first index, make all the elements zero from count to end.
-	while count < len(arr):
-		arr[count] = 0
-		count += 1
+			arr[i], arr[zero] = arr[zero], arr[i]
+			zero += 1
+	return arr
 
 
-arr = [0,2,0,22,0,9]
-print moveZeros(arr)
+nums = [0,2,0,22,0,9]
+print (moveZeros(nums))
 
 
 
