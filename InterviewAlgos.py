@@ -1,8 +1,9 @@
 from collections import deque
-"""
+import math
+
+
 #Given a Binary Tree, find the maximum depth.
 #Given a Binary Tree, find the minimum depth.
-
 
 class Node:
 	def __init__(self, value):
@@ -51,8 +52,8 @@ root.right = Node(3)
 root.left.left = Node(4)
 root.left.right = Node(5)
 
-print "The max depth of this tree is...", maxDepth(root)
-print "The min depth of this tree is...", minDepth(root)
+print ("The max depth of this tree is...", maxDepth(root))
+print ("The min depth of this tree is...", minDepth(root))
 
 #-----------------------------------------------------------------------------------------#
 
@@ -68,12 +69,13 @@ a = "11"
 b = "1"
 
 makeBinaryString(a,b)
-print makeBinaryString(a,b)
+print (makeBinaryString(a,b))
 
 #-----------------------------------------------------------------------------------#
 
 #Given an array nums and a value val, remove all instances of that value in place and return the new length.
 #Slicing a list goes as follows. list[<start>:<stop>:<step>]
+
 def removeElement(arr, val):
 	for i in range(len(arr)) [::-1]:
 		if arr[i] == val:
@@ -88,12 +90,11 @@ def removeElement2(arr, val):
 
 nums = [1,2,2,3,4,5,2,7]
 removeElement(nums, 2)
-print removeElement(nums, 2)
+print (removeElement(nums, 2))
 
 #----------------------------------------------------------------------------------------#
 
 #Given an expression string, write a program to check if a string has valid parenthesis.
-
 
 def checkString(input_str):
 	dic = {"(" : ")", "{" : "}", "[" : "]" }
@@ -111,8 +112,8 @@ def checkString(input_str):
 
 new_string = "(){}[]"
 str2 = "())))"
-print checkString(new_string)
-print checkString(str2)
+print (checkString(new_string))
+print (checkString(str2))
 
 
 #----------------------------------------------------------------------------------#
@@ -131,8 +132,8 @@ haystack = "Super Mario"
 needle = "Mario"
 h2 = "Nebula"
 n2 = "Kowloon"
-print findNeedle(h2, n2)
-print findNeedle(haystack, needle)
+print (findNeedle(h2, n2))
+print (findNeedle(haystack, needle))
 
 
 #-------------------------------------------------------------------------------------#
@@ -141,17 +142,20 @@ print findNeedle(haystack, needle)
 #i.e arr = [1,2,3,4,5,6,7] --> arr = [5,6,7,1,2,3,4]
 
 def rotateArray(arr, step):
+	#base case
 	if step == 0:
 		return arr
 	else:
 		#take the no of steps to the end of the arr by slicing and the take the arr until the no of steps.
 		#then add them and return the entire arr.
-		return arr[:] = arr[-step:] + arr[:-step]
+		arr[:] = arr[-step:] + arr[:-step]
+		return arr[:]
 
 
 arr = [0,1,2,3,4,5,6,7]
-print rotateArray(arr, step)
-"""
+step = 3
+print (rotateArray(arr, step))
+
 
 #----------------------------------------------------------------------------------------#
 
@@ -171,6 +175,33 @@ def moveZeros(arr):
 
 nums = [0,2,0,22,0,9]
 print (moveZeros(nums))
+
+#---------------------------------------------------------------------------------------------#
+
+#Compute and return the sqrt of x, where x is a non-negative number.
+
+def sqrtX(value):
+	#Make sure to import the math module
+	#Use int to truncate the decimal.
+	return int(math.sqrt(value))
+
+x = 56
+print (sqrtX(x))
+
+#-----------------------------------------------------------------------------------------#
+
+#Given two binary strings, reutrn their sum (Also a binary string).
+#Input strings are both non-empty and contain only characters 1 or 0.
+
+def addBinaryString(str_a, str_b):
+	#convert to int and gets the binary values, the slices the "0b" from the return value.
+	return bin(int(str_a, 2) + int(str_b, 2)) [2:]
+
+a = "1010"
+b = "1011"
+print (addBinaryString(a,b))
+
+
 
 
 
