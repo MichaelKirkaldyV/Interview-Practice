@@ -1,3 +1,5 @@
+import math 
+
 
 #Reverse a singly linked list
 #[1,2,3,4,5] -> [5,4,3,2,1]
@@ -49,3 +51,22 @@ newList.insert(20)
 newList.print()
 newList.reverse()
 newList.print()
+
+#------------------------------------------------------------------------------------------#
+
+#Given a number, check to see if it is a perfect square or not.
+
+def isPerfectSquare(integer):
+	#take the square root.
+	sq = math.sqrt(integer)
+	#Take the floor/ceiling/round of the square root.
+	#Subtract the value from the the floor/ceiling square root from the square root.
+	sq = sq - math.floor(sqrt_)
+	#If square root is equal to zero, it is a perfect square.
+	if sq == 0:
+		print("Yes!")
+	else:
+		print("No")
+
+x = 52
+isPerfectSquare(x)
