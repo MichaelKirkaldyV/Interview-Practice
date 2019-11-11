@@ -1,4 +1,5 @@
 import math 
+from collections import Counter
 
 
 #Reverse a singly linked list
@@ -61,7 +62,7 @@ def isPerfectSquare(integer):
 	sq = math.sqrt(integer)
 	#Take the floor/ceiling/round of the square root.
 	#Subtract the value from the the floor/ceiling square root from the square root.
-	sq = sq - math.floor(sqrt_)
+	sq = sq - math.floor(sq)
 	#If square root is equal to zero, it is a perfect square.
 	if sq == 0:
 		print("Yes!")
@@ -70,3 +71,20 @@ def isPerfectSquare(integer):
 
 x = 52
 isPerfectSquare(x)
+
+#------------------------------------------------------------------------#
+
+#Given an array of size n, find the majority element. The majority element is one that appears 
+#more than n/2 times.
+
+def majorityElement(arr):
+	new_dict = Counter(arr)
+	size = len(arr)
+
+	for key, value in new_dict.items():
+		if value > size / 2:
+			print (key)
+			return
+	print ("None")
+
+
