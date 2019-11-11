@@ -77,14 +77,45 @@ isPerfectSquare(x)
 #Given an array of size n, find the majority element. The majority element is one that appears 
 #more than n/2 times.
 
-def majorityElement(arr):
+def findMajorityElement(arr):
+	#Convert the list into a dictionary using the Counter() method.
+	#having the elements as the keys and their frequencies as the values
 	new_dict = Counter(arr)
 	size = len(arr)
 
 	for key, value in new_dict.items():
+		#Now traverse the dictionary.The element whos frequency is greater than size / 2 is the majority element.
 		if value > size / 2:
 			print (key)
 			return
 	print ("None")
+
+nums = [1,4,5,6,6,7,7,7,7,7]
+findMajorityElement(nums)
+
+
+
+#------------------------------------------------------------------------------------#
+
+#Find the pivot element of an integer array.
+#A pivot is defined as the index where the sum of the numbers on the left of the array are equal to the sum of the right.
+#If there is no pivot return -1.
+
+def findPivot(arr):
+	right_sum = sum(arr)
+	left_sum = 0
+	for index, count in enumerate(arr):
+		right_sum -= count
+		if left_sum == right_sum:
+			return index
+		left_sum += count
+	return -1
+
+nums = [4,5,2,4,6,3,2]
+nums2 = [4,6,77,5,89,2,1]
+print (findPivot(nums))
+print (findPivot(nums2))
+
+
 
 
