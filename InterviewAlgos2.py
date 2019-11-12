@@ -116,6 +116,26 @@ nums2 = [4,6,77,5,89,2,1]
 print (findPivot(nums))
 print (findPivot(nums2))
 
+#----------------------------------------------------------------------------#
+
+#Given three points, check whether they lie on a straight collinear or not.
+#i.e [[1,1], [1,4], [1,5]] is collinear
+# [[1,5], [2,5], [4,6]] is not.
+#Three points lie on a straight if the area if formed by the triangle of the three points is zero.
+#Formula for Area of a triangle is  0.5 * [x1 * (y2 - y1) + x2 * (y3 - y2) + x3 * (y1 - y2)]
+
+def isCollinear(x1, y1, x2, y2, x3, y3):
+	#Calculate the area of a triangle.
+	area = x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)
+	if area == 0:
+		return True
+	else:
+		return False
+
+
+x1, x2, x3 ,y1, y2, y3 = 1,1,1,1,4,5
+print (isCollinear(x1, y1, x2, y2, x3, y3))
+
 
 
 

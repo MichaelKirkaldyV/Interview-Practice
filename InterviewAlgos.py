@@ -1,7 +1,7 @@
 from collections import deque
 import math
 
-"""
+
 #Given a Binary Tree, find the maximum depth.
 #Given a Binary Tree, find the minimum depth.
 
@@ -200,22 +200,7 @@ def addBinaryString(str_a, str_b):
 a = "1010"
 b = "1011"
 print (addBinaryString(a,b))
-"""
 
-def findPivot(arr):
-	right_sum = sum(arr)
-	left_sum = 0
-	for index, count in enumerate(arr):
-		right_sum -= count
-		if left_sum == right_sum:
-			return index
-		left_sum += count
-	return -1
-
-nums = [4,5,2,4,6,3,2]
-nums2 = [4,6,77,5,89,2,1]
-print (findPivot(nums))
-print (findPivot(nums2))
 
 
 
