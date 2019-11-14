@@ -1,7 +1,7 @@
 #Fibnacci sequence
 #0,1,1,2,3,5,8,13,21,34,55,89,144
 #F(n) = F(n-1) + F(n-2)
-
+"""
 def fibonacci(n):
 	#First number in fib sequence is 0
 	if n <= 0:
@@ -17,7 +17,7 @@ for n in range (1, 101):
 	print(n, ":", fibonacci(n))
 
 #--------------------------------------------------------#
-"""
+
 FizzBuzz
 If a number is a multiple of 3 return fizz
 If it is a multiple of 5 return buzz
@@ -35,4 +35,23 @@ def fizzbuzz():
 
 fizzbuzz()
 """
+
+#-----------------------------------------------------------------------------#
+
+"""
+Write a function that returns true if a string is a palindrone and false if it is not.
+A Palindrone is a word that is the same reverse as it is initially.
+"""
+
+def isPalindrone(str1):
+	rev_str = str1[::-1]
+	if str1 == rev_str:
+		return True
+	else:
+		return False
+
+print(isPalindrone("gag"))
+print(isPalindrone("Kamehameha"))
+
+
 
