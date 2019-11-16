@@ -40,8 +40,8 @@ fizzbuzz()
 
 """
 Write a function that returns true if a string is a palindrone and false if it is not.
-A Palindrone is a word that is the same reverse as it is initially.
-"""
+A Palindrom is a word that is the same reverse as it is initially.
+
 
 def isPalindrone(str1):
 	rev_str = str1[::-1]
@@ -52,6 +52,22 @@ def isPalindrone(str1):
 
 print(isPalindrone("gag"))
 print(isPalindrone("Kamehameha"))
+"""
+
+#A function that returns multiple Palindomes.
+
+def getPalindromes(input_str):
+	#Seperate the sentence into substrings.
+	words = input_str.split()
+	for word in words:
+		if word == word[::-1]:
+			print("Palindrome found! - ", word)
+		else:
+			None
+	
+
+sentence = "The concert starts at noon"
+getPalindromes(sentence)
 
 
 
