@@ -1,4 +1,5 @@
 from random import shuffle
+from itertools import permutations
 
 
 #Fibnacci sequence
@@ -97,6 +98,17 @@ def multiplyStrings(str1, str2):
 a = "56"
 b = "34"
 print(multiplyStrings(a,b))
+
+#--------------------------------------------------------------------------#
+
+#Find permutations in a set on n elements.
+
+def findPermutations(list_):
+	plist = list(permutations(range(1,4)))
+	return plist
+
+list_ = [2,3,9]
+print(findPermutations(list_))
 
 
 
