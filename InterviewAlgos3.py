@@ -104,11 +104,41 @@ print(multiplyStrings(a,b))
 #Find permutations in a set on n elements.
 
 def findPermutations(list_):
+	#Using pythons itertools and permutations
 	plist = list(permutations(range(1,4)))
 	return plist
 
 list_ = [2,3,9]
 print(findPermutations(list_))
+
+#---------------------------------------------------------------#
+
+#Find the kth largest element in an array.
+
+def findKthElement(arr, k):
+	#sorts backwards from biggest to smallest.
+	arr.sort(reverse = True)
+	print(arr)
+	#subtract 1 from k to get kth largest, since lists count from 0
+	return arr[k-1]
+
+list_ = [4,7,9,3,5,90]
+k = 3
+print(findKthElement(list_, k))
+
+#----------------------------------------------------------------#
+
+#Find the missing elements in an array.
+
+def findMissingElements(arr):
+	#Using a list comprehension to return a list of all the indexes not in the list.
+	print([x for x in range(arr[0], arr[-1], +1) if x not in arr])
+
+list_2 = [1,3,4,5,7,9,10]
+print(findMissingElements(list_2))
+
+
+
 
 
 
