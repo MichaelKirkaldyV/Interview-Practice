@@ -137,6 +137,21 @@ def findMissingElements(arr):
 list_2 = [1,3,4,5,7,9,10]
 print(findMissingElements(list_2))
 
+#------------------------------------------------------------------#
+
+#Find the repeating elements in an array.
+
+def findRepeatingElements(arr):
+	arr_size = len(arr)
+	for i in range(0, arr_size):
+		#Check the next index and compare them.
+		for j in range(i + 1, arr_size):
+			if arr[i] == arr[j]:
+				print(arr[i], "is a repeating element")
+
+list_3 = [1,2,3,4,4,5,2,5,6,7,9,9]
+findMissingElements(list_3)
+
 
 
 
