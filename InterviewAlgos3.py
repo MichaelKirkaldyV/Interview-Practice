@@ -152,6 +152,20 @@ def findRepeatingElements(arr):
 list_3 = [1,2,3,4,4,5,2,5,6,7,9,9]
 findMissingElements(list_3)
 
+#---------------------------------------------------------------------#
+
+#Find the largest, second largest and the smallest in an unsorted integer array.
+
+def findLargeSmallSlarge(arr):
+	arr.sort()
+	largest = arr[-1]
+	smallest = arr[0]
+	sec_largest = arr[-2]
+	return largest, smallest, sec_largest
+
+list_4 = [6,7,8,999,234356,6,78,1]
+print(findLargeSmallSlarge(list_4))
+
 
 
 
