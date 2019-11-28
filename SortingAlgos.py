@@ -73,6 +73,24 @@ def insertionSort(arr):
 #insertionSort(alist)
 #print alist
 
+"""
+Another divide and conquer algorithm. It picks an element as the pivot and sorts the elements around the picked pivot.
+There are many different versions.
+1. 1st elemenet as pivot.
+2. last element as pivot.
+3. random element as pivot.
+4. median element as pivot
+"""
+def quickSort(arr):
+	if len(arr) <= 1:
+		return
+	else:
+		#sorts from smallest to biggest. Is not sorted in place so perfomance isn't the best.
+		return [x for x in range(arr[1], arr[-1]) if x < arr[0]]
+		#sorts from biggest to smallest.
+		#return [x for x in range(arr[1]), arr[-1] if x > arr[0]]
+
+
 
 """
 Heap Sort is also like insertion sort and selection sort. It segments the list into unsorted and sorted parts.
