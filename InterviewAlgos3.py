@@ -157,6 +157,7 @@ findMissingElements(list_3)
 #Find the largest, second largest and the smallest in an unsorted integer array.
 
 def findLargeSmallSlarge(arr):
+	#Sort the list to put things in order from small to large.
 	arr.sort()
 	largest = arr[-1]
 	smallest = arr[0]
@@ -165,6 +166,20 @@ def findLargeSmallSlarge(arr):
 
 list_4 = [6,7,8,999,234356,6,78,1]
 print(findLargeSmallSlarge(list_4))
+
+#---------------------------------------------------------------------#
+
+#Check to see if a string contains only numbers/digits.
+
+def checkString(str1):
+	#returns a boolean value of true if the string is full of numbers.
+	return str1.isdigit()
+
+new_string1 = "85635"
+new_string2 = "Let's have some fun."
+print(checkString(new_string1))
+print(checkString(new_string2))
+
 
 
 
