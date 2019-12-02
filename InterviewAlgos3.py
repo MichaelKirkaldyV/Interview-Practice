@@ -181,6 +181,24 @@ print(checkString(new_string1))
 print(checkString(new_string2))
 
 
+#---------------------------------------------------------------------#
+
+"""
+This algorithm sets 2 pointers, one that moves fast or two paces at a time and a slow one which moves at a single pace.
+When the fast pointer reaches the end of the list, at the same time - the slow pointer will have reached the middle of the list.
+Then we can print this element.
+"""
+def findMiddleElement(arr):
+	fast_pntr = self.head
+	slow_pnter = self.head
+
+	if self.head is not None:
+		while fast_pntr is not None and fast_pntr.next is not None:
+			fast_pntr = fast_pntr.next.next
+			slow_pnter = slow_pnter.next
+		print("The middle element of this linked list is:" , slow_pnter)
+
+
 
 
 
