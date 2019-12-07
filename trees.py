@@ -69,15 +69,30 @@ class Node:
 	def printInOrder(self):
 		if self.left is not None:
 			self.left.printInOrder()
-		print self.value
+		print(self.value)
 		if self.right is not None:
 			self.right.printInOrder()
 
+	def printPreorder(self):
+		if self.value:
+			#First prints data of root node.
+			print(self.value)
+			#Then recursively checks the and prints the values of the node in the left tree.
+			if self.left == None:
+				return
+			else:
+				self.left.printPreorder()
+			#Lastly recursively checks the right tree and prints the values of the nodes.
+			if self.right == None:
+				return
+			else:
+				self.right.printPreorder()
 
 newTree = Node(60)
 newTree.insert(24)
 newTree.insert(77)
 newTree.insert(2)
 newTree.printInOrder()
-newTree.find(2)
+print(newTree.find(2))
+newTree.printPreorder()
 
