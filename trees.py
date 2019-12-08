@@ -99,9 +99,22 @@ class Node:
 			if self.right is not None:
 				self.right.printPostorder()
 			else:
-				None
+				None  
 			#Prints root node last.
 			print(self.value)
+
+	#TODO
+	#Returns the count of how many leaf nodes are in a tree.
+	#A node is a leaf node if both left and right nodes of it are NULL.
+	def getLeafCount(self):
+		if self.value == None:
+			return 0
+		elif self.left == None and self.right == None:
+				#Return one because we only have one node in this tree.
+				return 1
+		else:
+			return self.getLeafCount(self.left) + self.getLeafCount(self.right)
+
 
 newTree = Node(60)
 newTree.insert(24)
@@ -111,4 +124,5 @@ newTree.printInOrder()
 print(newTree.find(2))
 newTree.printPreorder()
 newTree.printPostorder()
+print(newTree.getLeafCount())
 
