@@ -88,6 +88,21 @@ class Node:
 			else:
 				self.right.printPreorder()
 
+	def printPostorder(self):
+		if self.value:
+			#Recursively prints left tree first.
+			if self.left is not None:
+				self.left.printPostorder()
+			else:
+				None
+			#Next recursively prints right tree second.
+			if self.right is not None:
+				self.right.printPostorder()
+			else:
+				None
+			#Prints root node last.
+			print(self.value)
+
 newTree = Node(60)
 newTree.insert(24)
 newTree.insert(77)
@@ -95,4 +110,5 @@ newTree.insert(2)
 newTree.printInOrder()
 print(newTree.find(2))
 newTree.printPreorder()
+newTree.printPostorder()
 
