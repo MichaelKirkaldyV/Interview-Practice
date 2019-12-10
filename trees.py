@@ -104,16 +104,21 @@ class Node:
 			print(self.value)
 
 	#TODO
-	#Returns the count of how many leaf nodes are in a tree.
+	#Returns the count of how many leaf nodes are in a tree.  
 	#A node is a leaf node if both left and right nodes of it are NULL.
 	def getLeafCount(self):
-		if self.value == None:
-			return 0
-		elif self.left == None and self.right == None:
-				#Return one because we only have one node in this tree.
-				return 1
+		count = 0
+		if self.value is None:
+			return
+		elif self.left is None and self.right is None:
+			count += 1
 		else:
-			return self.getLeafCount(self.left) + self.getLeafCount(self.right)
+			if self.left is not None:
+				self.left.getLeafCount()
+			if self.right is not None:
+				self.right.getLeafCount()
+		print("The leaf count is:", count)
+
 
 
 newTree = Node(60)
