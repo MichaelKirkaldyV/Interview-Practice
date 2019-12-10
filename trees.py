@@ -103,21 +103,17 @@ class Node:
 			#Prints root node last.
 			print(self.value)
 
-	#TODO
-	#Returns the count of how many leaf nodes are in a tree.  
-	#A node is a leaf node if both left and right nodes of it are NULL.
-	def getLeafCount(self):
-		count = 0
-		if self.value is None:
-			return
-		elif self.left is None and self.right is None:
-			count += 1
-		else:
-			if self.left is not None:
-				self.left.getLeafCount()
-			if self.right is not None:
-				self.right.getLeafCount()
-		print("The leaf count is:", count)
+
+#Returns the count of how many leaf nodes are in a tree.  
+#A node is a leaf node if both left and right nodes of it are NULL.
+def countLeafNode(node):
+	if node is None:
+		return 0
+	if node.left is None and node.right is None:
+		return 1
+	else:
+		#Returns the sum of leaves in the left and right trees.
+		return countLeafNode(node.left) + countLeafNode(node.right)
 
 
 
@@ -129,5 +125,5 @@ newTree.printInOrder()
 print(newTree.find(2))
 newTree.printPreorder()
 newTree.printPostorder()
-print(newTree.getLeafCount())
+print("Leaf count is:", countLeafNode(newTree))
 
