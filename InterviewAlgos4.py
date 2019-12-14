@@ -1,4 +1,6 @@
-#Write an Algorithm to count special character, digits, consonants or vowels in a string.
+import itertools
+
+# Write an Algorithm to count special character, digits, consonants or vowels in a string.
 def countCharType(str_):
     #special char counts spaces as well.
     special_ch = 0
@@ -33,4 +35,14 @@ def countCharType(str_):
 new_str = "Enemey Chopper ahead! Take Cover! 202"
 countCharType(new_str)
 
+#-------------------------------------------------------------#
+
+# Given two integers, return all possible combinations of k and numbers out of 1....n
+# Return type is a list.
+
+def combinations(n, k):
+    return list(itertools.combinations(range(1, n + 1), k))
+n = 4
+k = 2
+print(combinations(n, k))
     
