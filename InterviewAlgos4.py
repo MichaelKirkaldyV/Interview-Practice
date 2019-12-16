@@ -45,4 +45,37 @@ def combinations(n, k):
 n = 4
 k = 2
 print(combinations(n, k))
-    
+
+'''
+Given an array, find the Peak element in the array. An array element is peak if it is not smaller than its neighbors(left, right)
+i.e. arr - [5,10,20,15] 20 is the only peak element.
+Corner cases give better idea about this problem.
+If an input arry is sorted in increasing order the last element is always peak.
+If an input array is sorted in decreasing order the first element is always peak.
+Lastly, if all elements are the same then every element is peak.
+'''
+
+def findPeakUtility(arr, low, high, length):
+    # Find the middle element.
+    mid = low + high / 2
+    mid = int(mid)
+
+    # If element to the left of mid is less than mid and to right of mid is less, return the mid as peak value.
+    # If mid is the 1st element return it as peak ( if sorted in decreasing order).
+    # If mid is the last element return it as peak( if sorted in increasing order).
+    if mid == 0 or arr[mid - 1] <= arr[mid]:
+        if mid == n - 1 or arr[mid + 1] <= arr[mid]:
+            return mid
+    elif mid > 0 and arr[ mid - 1] > arr[mid]:
+        return findPeakUtility(arr, low, mid - 1, n)
+    else:
+        return findPeakUtility(arr, low, mid + 1, n)
+
+
+def findPeak(arr, length):
+    # takes an array, lowest element, highest element and length of the array.
+    return findPeakUtility(arr, 0, n - 1, n)
+
+new_list = [1,3,20,4,1,0]
+n = len(new_list)
+print(findPeak(new_list, n))
