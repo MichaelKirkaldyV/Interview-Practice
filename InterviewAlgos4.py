@@ -79,3 +79,35 @@ def findPeak(arr, length):
 new_list = [1,3,20,4,1,0]
 n = len(new_list)
 print(findPeak(new_list, n))
+
+
+'''
+A simple Binary Search algo that after one check ignores half of the list.
+Compares x with the middle element.
+If x matches the middle element, we return it.
+Else if x is greater than the middle element, then x can only be in the right half of the subarray.
+If x is smaller, we recur for the left side.
+'''
+
+def binarySearch(arr, left, right, x):
+    # Base Case
+    if right > left:
+        # Find the middle value
+        mid = left + right / 2
+        # List indices must be integers or slices, not floats.
+        mid = int(mid)
+        # Checks if the middle value is equal to x.
+        if arr[mid] == x:
+            return mid
+        # If x is smaller than mid, it must be on the left side of the list.
+        # If x is greater than mid, it'll be on the right side.
+        elif x < arr[mid]:
+            # Recur left side of the list
+            return binarySearch(arr, 0, mid - 1, x)
+        else:
+            # Recur right side of the list
+            return binarySearch(arr, 0, mid + 1, x)
+
+list2 = [2,6,8,9990,35]
+x = 35
+print(binarySearch(list2, 0, len(list2) - 1, x))
