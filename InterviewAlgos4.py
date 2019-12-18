@@ -81,7 +81,7 @@ n = len(new_list)
 print(findPeak(new_list, n))
 
 
-'''
+'''[]
 A simple Binary Search algo that after one check ignores half of the list.
 Compares x with the middle element.
 If x matches the middle element, we return it.
@@ -91,11 +91,10 @@ If x is smaller, we recur for the left side.
 
 def binarySearch(arr, left, right, x):
     # Base Case
-    if right > left:
+    if right >= left:
         # Find the middle value
-        mid = left + right / 2
-        # List indices must be integers or slices, not floats.
-        mid = int(mid)
+        # // gives us floor division.
+        mid = (left + right) // 2
         # Checks if the middle value is equal to x.
         if arr[mid] == x:
             return mid
@@ -107,7 +106,23 @@ def binarySearch(arr, left, right, x):
         else:
             # Recur right side of the list
             return binarySearch(arr, 0, mid + 1, x)
+    else:
+        return print("Element is not present in this list.")
 
 list2 = [2,6,8,9990,35]
 x = 35
 print(binarySearch(list2, 0, len(list2) - 1, x))
+
+# Given an unsorted list, sort it in wave/wiggle format.
+# i.e num[1] < num[2] > nume[3] < num[4]
+
+def waveSort(arr):
+    arr.sort()
+    print(arr)
+    n = len(arr) - 1
+    for i in range(0, n, 2):
+        arr[i], arr[i + 1] = arr[i + 1], arr[i]
+    return arr
+
+list3 = [56,2,444,5,67,899,545,1]
+print(waveSort(list3))
